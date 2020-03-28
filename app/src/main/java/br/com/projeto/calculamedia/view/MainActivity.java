@@ -8,11 +8,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import br.com.projeto.calculamedia.R;
+import br.com.projeto.calculamedia.controller.AlunoControl;
 import br.com.projeto.calculamedia.model.Aluno;
 
 public class MainActivity extends AppCompatActivity {
 
     private Aluno aluno;
+    private AlunoControl control;
 
     private EditText ETnomeAluno;
     private EditText ETnota1;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void iniciaObjetos() {
         aluno = new Aluno();
+        control = new AlunoControl();
 
         ETnomeAluno = findViewById(R.id.ETnomeAluno);
         ETnota1 = findViewById(R.id.ETnota1);
@@ -56,15 +59,36 @@ public class MainActivity extends AppCompatActivity {
 
     public void pegaDadosTela() {
         iniciaObjetos();
-        aluno.setNome(ETnomeAluno.getText().toString());
-    
+        if (!ETnomeAluno.getText().toString().equals("")) {
+            aluno.setNome(ETnomeAluno.getText().toString());
+        } else {
+            aluno.setNome("Não Informado");
+        }
 
+        if (!ETnota1.getText().toString().equals("") && !ETnota2.getText().toString().equals("")) {
+            aluno.setMedia(control.calculaMedia(new Double(ETnota1.getText().toString()), new Double(ETnota2.getText().toString())));
+        } else {
+            aluno.setMedia(0.0);
+        }
     }
-
 
     public void mostraNaTela(View view) {
         pegaDadosTela();
         TVnomeAluno.setText(resNome + aluno.getNome());
+        TVMedia.setText(resMedia + aluno.getMedia());
+        if (control.isAprovado(aluno.getMedia())) {
+            TVSituacao.setText(resSituacao + situacaoAprovado);
+        } else {
+            TVSituacao.setText(resSituacao + situacaoReprovado);
+        }
+    }
 
+    public void limparDados(View view) {
+        ETnomeAluno.setText("");
+        ETnota1.setText("");
+        ETnota2.setText("");
+        TVnomeAluno.setText("");
+        TVMedia.setText("");
+        TVSituacao.setText("");
     }
 }

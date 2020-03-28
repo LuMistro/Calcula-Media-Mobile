@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nota1_hint"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nota2_hint"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
 
         <LinearLayout
@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:onClick="limparDados"
                 android:text="@string/limpa_dados" />
 
         </LinearLayout>
