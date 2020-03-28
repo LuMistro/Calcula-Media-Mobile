@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Calcula Média</string>
+    <string name="nome_aluno">Nome do Aluno</string>
+    <string name="nota1">Nota 1</string>
+    <string name="nota2">Nota 2</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpa_dados">Limpar dados</string>
+    <string name="nome_aluno_hint">Digite o nome do aluno</string>
+    <string name="nota1_hint">Digite a primeira nota</string>
+    <string name="nota2_hint">Digite a segunda nota</string>
+    <string name="resultato_nome">"Aluno: "</string>
+    <string name="resultado_media">Média:</string>
+    <string name="resultado_situacao">Situação:</string>
+    <string name="rssultado_aprovado">Aprovado</string>
+    <string name="resultado_reprovado">Reprovado</string>
+</resources>
